@@ -92,10 +92,10 @@
           <p>The most difficult part was not soldering. It was figuring out where the Bluetooth audio should enter the circuit so the original volume, balance, tone, and amplifier controls would still work.</p>
         </div>
 
-        <figure class="image-placeholder">
-          <div class="placeholder-label">Add front view of receiver</div>
-          <figcaption>Suggested file: <code>assets/receiver-front.jpg</code></figcaption>
-        </figure>
+        <figure>
+  			<img src="media/receiver-front.jpg" alt="Front view of receiver before restoration">
+  			<figcaption>Receiver before restoration.</figcaption>
+		</figure>
       </div>
     </section>
 
@@ -161,20 +161,28 @@
 
         <article class="card">
           <h3>Receiver board points</h3>
-          <p>The receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong>.</p>
-          <p>I used a multimeter and board tracing to verify that these points were in the audio path. I connected the Bluetooth signal ground to a confirmed signal-ground point, not just to any piece of metal.</p>
+          <p>The receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong> which are the TAPE audio line level inputs.  Since I don't have any cassette tapes, I choose to use this as my Bluetooth audio input.</p>
+          <p>The brown and grey wires traced to tape deck line level output.  I used a multimeter and board tracing to verify that these points were in the TAPE audio path.</p>
+          <p>In my case, the selector switch just connects the audio pathway while the play button closes a switch and turns on the tape drive motor.  Thus, I didn't need to do any additional work to disable the motor drive.  The audio pathway is active whenever the input is selected and the motor only turns on if play is pushed.  This is the behavior I wanted.</p>
+          <p>I connected the Bluetooth signal ground to a confirmed signal-ground point, not just to any piece of metal.  This keeps the audio ground isolated from the power ground and helps eliminate noise.  <strong>P20 / AGND</strong> had multiple wires connected to it and is the audio signal ground for the board.  I found this point by confirming continuity with the RCA style speaker jacks ground which is their outside jacket.</p>
         </article>
       </div>
 
       <div class="photo-pair">
-        <figure class="image-placeholder annotation-placeholder">
-          <div class="placeholder-label">Annotated Bluetooth module image<br><small>Mark L, R, AGND, 5 V, and GND</small></div>
-          <figcaption>Suggested file: <code>assets/bluetooth-pinout-annotated.jpg</code></figcaption>
-        </figure>
-        <figure class="image-placeholder annotation-placeholder">
-          <div class="placeholder-label">Annotated receiver board image<br><small>Mark P11/L, P12/R, and signal ground</small></div>
-          <figcaption>Suggested file: <code>assets/receiver-solder-points-annotated.jpg</code></figcaption>
-        </figure>
+        <figure>
+  			<img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth audio board">
+ 			<figcaption>Bluetooth audio board showing L, R, AGND, 5V, and GND.</figcaption>
+		</figure>
+		<div class="photo-pair">
+			<figure>
+				<img src="media/receiver-solder-points-annotated.jpg" alt="Receiver solder points">
+				<figcaption>Receiver board showing input selector switch and P11/L, P12/R solder points for injecting Bluetooth audio signal into tape line level audio input.</figcaption>
+			</figure>
+			<figure>
+				<img src="media/audio-ground.jpg" alt="Audio ground">
+				<figcaption>Receiver board showing P20 audio ground.</figcaption>
+			</figure>
+		</div>
       </div>
 
       <div class="simple-diagram" aria-label="Simple wiring diagram">
@@ -185,7 +193,7 @@
         <div class="diagram-lines" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="diagram-box">
           <h3>Receiver board</h3>
-          <p>P11 / L</p><p>P12 / R</p><p>Signal ground</p>
+          <p>P11 / L</p><p>P12 / R</p><p>P20 / Audio signal ground</p>
         </div>
       </div>
     </section>
@@ -236,9 +244,9 @@
         </div>
 
         <div class="gallery">
-          <figure class="image-placeholder"><div class="placeholder-label">Receiver before restoration</div><figcaption><code>assets/before.jpg</code></figcaption></figure>
-          <figure class="image-placeholder"><div class="placeholder-label">Turntable mechanism opened</div><figcaption><code>assets/turntable-open.jpg</code></figcaption></figure>
-          <figure class="image-placeholder"><div class="placeholder-label">Receiver chassis overview</div><figcaption><code>assets/chassis-overview.jpg</code></figcaption></figure>
+          <figure><img src="media/receiver-front.jpg" alt="Receiver Before Restoration"><figcaption>Receiver before restoration</figcaption></figure>
+          <figure><img src="media/turntable-open.jpg" alt="Receiver Truntable Open"><figcaption>Turntable removed</figcaption></figure>
+          <figure><img src="media/chassis-overview.jpg" alt="Receiver Chassis Overview"><figcaption>Inside the receiver chassis</figcaption></figure>
           <figure class="image-placeholder"><div class="placeholder-label">Main circuit board</div><figcaption><code>assets/main-board.jpg</code></figcaption></figure>
           <figure class="image-placeholder"><div class="placeholder-label">Bluetooth module</div><figcaption><code>assets/bluetooth-module.jpg</code></figcaption></figure>
           <figure class="image-placeholder"><div class="placeholder-label">Bench testing</div><figcaption><code>assets/bench-test.jpg</code></figcaption></figure>
