@@ -33,10 +33,7 @@
         </div>
       </div>
 
-      <figure class="image-placeholder hero-photo">
-        <div class="placeholder-label">Add final assembled stereo photo here</div>
-        <figcaption>Suggested file: <code>assets/final-stereo.jpg</code></figcaption>
-      </figure>
+      <figure class="hero-photo"><video class="hero-video" controls preload="metadata" poster="media/testing-poster.jpg" aria-label="Audio test"><source src="media/testing.mp4" type="video/mp4">Your browser does not support the video element.</video><figcaption>Audio test</figcaption></figure>
     </div>
   </header>
 
@@ -107,33 +104,51 @@
         </div>
 
         <div class="parts-layout">
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th>Part</th><th>What to look for</th><th>Why it matters</th></tr></thead>
-              <tbody>
-                <tr><td>Bluetooth audio receiver</td><td>5 V input, stereo line-level L/R outputs, exposed ground pad</td><td>It must provide an audio signal, not a speaker-level amplified output.</td></tr>
-                <tr><td>5 V power supply</td><td>Regulated, low-noise, isolated if connected to mains</td><td>Bluetooth boards can add hum or digital noise when powered poorly.</td></tr>
-                <tr><td>Coupling capacitors</td><td>1 to 4.7 µF, one per channel</td><td>They can block DC between the Bluetooth board and the stereo input.</td></tr>
-                <tr><td>Filter capacitors</td><td>100 to 470 µF electrolytic plus 0.1 µF ceramic</td><td>They reduce ripple and high-frequency noise on the 5 V supply.</td></tr>
-                <tr><td>Hookup wire</td><td>Small stranded wire, preferably twisted or shielded for audio</td><td>Short, paired wiring helps reduce hum and interference.</td></tr>
-                <tr><td>Mounting materials</td><td>Plastic standoffs, heat-shrink tubing, cable ties</td><td>The board should not touch the metal chassis or moving parts.</td></tr>
-                <tr><td>Tools</td><td>Multimeter, soldering iron, solder, cutters, small screwdrivers</td><td>A multimeter was essential for checking voltage, continuity, and ground.</td></tr>
-              </tbody>
-            </table>
-          </div>
-
           <div class="stacked-cards">
             <article class="card dark-card">
               <h3>Choosing a Bluetooth module</h3>
-              <p>I looked for a board with clearly labeled <strong>L</strong>, <strong>R</strong>, and <strong>AGND</strong> solder pads. I also wanted a module that ran directly from 5 V and reconnected automatically after power-up.</p>
-              <p>Avoid boards intended only to drive speakers. The stereo already has an amplifier, so the Bluetooth board should provide a line-level signal.</p>
+              <p>I looked for a board with an integrated antenna and clearly labeled <strong>L</strong>, <strong>R</strong>, and <strong>AGND</strong> solder pads. I also wanted a module that ran directly from 5 V and reconnected automatically after power-up.</p>
+              <p>Avoid boards intended only to drive speakers. The stereo already has an amplifier, so the Bluetooth board should provide a <strong>line-level</strong> signal.</p>
             </article>
 
             <article class="card dark-card">
               <h3>Choosing the power supply</h3>
-              <p>I used a regulated 5 V supply instead of guessing that an internal wire was safe. The supply needs enough current for the Bluetooth board and should produce very little ripple or switching noise.</p>
+              <p>I used a <a href="https://www.amazon.com/dp/B0DZX23P3V?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_6" target="_blank" rel="noreferrer">compact regulated 5 V AC-to-DC module</a> instead of guessing that an internal wire was safe. This module is rated for up to 700 mA, which is suitable for powering a small Bluetooth board when installed correctly.</p>
               <p>For initial testing, a USB power bank or current-limited bench supply is a good way to separate audio problems from power-supply problems.</p>
             </article>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Part</th><th>What to look for</th><th>Why it matters</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><div class="part-item"><a href="https://www.amazon.com/dp/B07W7YCFS1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_8" target="_blank" rel="noreferrer">Bluetooth audio receiver</a><img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth audio receiver board" loading="lazy"></div></td>
+                  <td>5 V input, stereo line-level L/R outputs, exposed ground pad</td>
+                  <td>It must provide an audio signal, not a speaker-level amplified output. This is the kind of compact module I used for the project.</td>
+                </tr>
+                <tr>
+                  <td><div class="part-item"><a href="https://www.amazon.com/dp/B0DZX23P3V?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_6" target="_blank" rel="noreferrer">5 V power supply</a><img src="media/powersupply5V.png" alt="5 V power supply module" loading="lazy"></div></td>
+                  <td>Regulated AC-to-DC module with a 5 V output and up to 700 mA of current</td>
+                  <td>This compact module provides the regulated 5 V DC needed by the Bluetooth board. Verify the output with a multimeter before connecting it, and use appropriate insulation and isolation when working from mains power.</td>
+                </tr>
+                <tr>
+                  <td><div class="part-item"><span>Coupling capacitors</span><img src="media/bluetooth-coupling-caps.jpg" alt="Coupling capacitors installed on the Bluetooth receiver board" loading="lazy"></div></td>
+                  <td>1 to 4.7 µF, one per channel</td>
+                  <td>They can block DC between the Bluetooth board and the stereo input.</td>
+                </tr>
+                <tr>
+                  <td><div class="part-item"><span>Hookup wire</span><img src="media/final-wiring.jpg" alt="Hookup wires routed inside the stereo" loading="lazy"></div></td>
+                  <td>Small stranded wire, preferably twisted or shielded for audio</td>
+                  <td>Short, paired wiring helps reduce hum and interference.</td>
+                </tr>
+                <tr>
+                  <td><div class="part-item"><span>Tools</span><img src="media/bench-testing.jpg" alt="Tools and multimeter used to test the stereo" loading="lazy"></div></td>
+                  <td>Multimeter, soldering iron, solder, cutters, small screwdrivers</td>
+                  <td>A multimeter was essential for checking voltage, continuity, and ground.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -148,56 +163,19 @@
       <div class="notice"><strong>Important:</strong> The labels and board layout should be checked on the actual stereo before soldering. Similar models may use different circuit boards.</div>
 
       <div class="wiring-layout">
-        <div class="wiring-column wiring-column-left">
-          <article class="card wiring-card">
-            <h3>Bluetooth board pads</h3>
-            <ul>
-              <li><strong>L</strong> is the left audio channel.</li>
-              <li><strong>R</strong> is the right audio channel.</li>
-              <li><strong>AGND</strong> is the audio ground.</li>
-              <li><strong>5V</strong> and <strong>GND</strong> power the board.</li>
-              <li><strong>VBAT</strong> is not used for a normal regulated 5 V installation.</li>
-            </ul>
-          </article>
+        <article class="card wiring-card receiver-points">
+          <h3>Receiver board points</h3>
+          <p>The receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong>. These are the TAPE line-level audio inputs. Since I did not have any cassette tapes, I chose to use this input for Bluetooth audio.</p>
+          <p>The brown and gray wires traced to the tape deck's line-level output. I used a multimeter and followed the board traces to verify that these points were in the TAPE audio path.</p>
+          <p>On my stereo, the selector switch connects the audio pathway while the cassette play button separately closes a switch for the tape-drive motor. This meant the TAPE audio input was active whenever selected, but the motor only ran when PLAY was pressed.</p>
+          <p>I connected the Bluetooth signal ground to a confirmed signal-ground point rather than to an arbitrary piece of metal. <strong>P20 / AGND</strong> had several wires connected to it and served as the board's audio signal ground. I confirmed it by checking continuity to the outer shield connection of the RCA-style speaker jacks.</p>
+        </article>
 
-          <figure class="wiring-feature-image">
-            <img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth audio board with L, R, AGND, 5V, and GND pads labeled">
-            <figcaption>Bluetooth audio board showing the pads used for audio and power.</figcaption>
-          </figure>
-
-          <article class="card wiring-card power-card">
-            <h3>The 5 V power supply</h3>
-            <p>The Bluetooth board needs a clean, regulated 5 V supply. I used a separate AC-to-5 V module rather than trying to power it from an unknown point inside the stereo.</p>
-            <p>The module should be isolated if it connects directly to mains voltage. Its output should be checked with a multimeter before connecting the Bluetooth board.</p>
-            <ul>
-              <li>Confirm the output is close to 5 V DC.</li>
-              <li>Connect supply positive to <strong>5V</strong>.</li>
-              <li>Connect supply negative to the Bluetooth board's <strong>GND</strong>.</li>
-              <li>Keep mains wiring insulated and physically separated from the low-voltage audio wiring.</li>
-              <li>Mount the module securely so its underside cannot touch the chassis.</li>
-            </ul>
-          </article>
-
-          <figure class="wiring-feature-image image-placeholder power-supply-placeholder">
-            <div class="placeholder-label">Add 5 V power supply module photo here</div>
-            <figcaption>Suggested file: <code>media/5v-power-supply.jpg</code></figcaption>
-          </figure>
-        </div>
-
-        <div class="wiring-column wiring-column-right">
-          <article class="card wiring-card">
-            <h3>Receiver board points</h3>
-            <p>The receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong>. These are the TAPE line-level audio inputs. Since I did not have any cassette tapes, I chose to use this input for Bluetooth audio.</p>
-            <p>The brown and gray wires traced to the tape deck's line-level output. I used a multimeter and followed the board traces to verify that these points were in the TAPE audio path.</p>
-            <p>On my stereo, the selector switch connects the audio pathway while the cassette play button separately closes a switch for the tape-drive motor. This meant the TAPE audio input was active whenever selected, but the motor only ran when PLAY was pressed.</p>
-            <p>I connected the Bluetooth signal ground to a confirmed signal-ground point rather than to an arbitrary piece of metal. <strong>P20 / AGND</strong> had several wires connected to it and served as the board's audio signal ground. I confirmed it by checking continuity to the outer shield connection of the RCA-style speaker jacks.</p>
-          </article>
-
+        <div class="wiring-images">
           <figure class="wiring-detail-image">
             <img src="media/receiver-solder-points-annotated.jpg" alt="Receiver board with P11 left and P12 right tape input solder points labeled">
             <figcaption>P11/L and P12/R are the tape line-level inputs used for the Bluetooth audio signal.</figcaption>
           </figure>
-
           <figure class="wiring-detail-image">
             <img src="media/audio-ground.jpg" alt="Receiver board with P20 audio ground labeled">
             <figcaption>P20/AGND is the confirmed audio signal-ground connection.</figcaption>
@@ -205,16 +183,88 @@
         </div>
       </div>
 
-      <div class="simple-diagram" aria-label="Simple wiring diagram">
-        <div class="diagram-box">
-          <h3>Bluetooth board</h3>
-          <p>L</p><p>R</p><p>AGND</p>
+      <div class="simple-diagram" role="group" aria-label="Connection diagram">
+        <div class="diagram-scroll" tabindex="0" aria-label="Scrollable connection diagram">
+          <svg class="connection-svg" viewBox="0 0 1120 500" role="img" aria-labelledby="connection-title connection-description">
+            <title id="connection-title">Power supply, Bluetooth, and receiver board connections</title>
+            <desc id="connection-description">Three stylized circuit boards show the power supply VCC connected to Bluetooth +5V, power supply GND to Bluetooth GND, Bluetooth L to receiver P11, Bluetooth R to receiver P12, and Bluetooth AGND to receiver P20. IN L and IN N are the mains input terminals.</desc>
+
+            <g class="pcb supply-pcb">
+              <rect class="pcb-board" x="30" y="70" width="285" height="390" rx="24"/>
+              <path class="pcb-trace" d="M55 125h35v28h22m-57 218h35v-28h22m180-190h-38v24h-24m62 164h-38v-24h-24"/>
+              <circle class="pcb-detail" cx="62" cy="102" r="4"/><circle class="pcb-detail" cx="283" cy="102" r="4"/>
+              <circle class="pcb-detail" cx="62" cy="428" r="4"/><circle class="pcb-detail" cx="283" cy="428" r="4"/>
+              <text class="pcb-title" x="172" y="121">5 V POWER SUPPLY</text>
+              <text class="pcb-subtitle" x="172" y="147">REGULATED DC OUTPUT</text>
+              <text class="pcb-label" x="70" y="215">IN L</text>
+              <text class="pcb-caption" x="70" y="238">LINE IN</text>
+              <circle class="pcb-hole mains-hole" cx="280" cy="210" r="7"/>
+              <text class="pcb-label" x="70" y="280">IN N</text>
+              <text class="pcb-caption" x="70" y="303">NEUTRAL IN</text>
+              <circle class="pcb-hole mains-hole" cx="280" cy="275" r="7"/>
+              <text class="pcb-label" x="70" y="354">VCC</text>
+              <text class="pcb-caption" x="70" y="377">+5 V OUTPUT</text>
+              <circle class="pcb-hole connection-hole" cx="307" cy="348" r="8"/>
+              <text class="pcb-label" x="70" y="414">GND</text>
+              <text class="pcb-caption" x="70" y="437">0 V OUTPUT</text>
+              <circle class="pcb-hole connection-hole" cx="307" cy="408" r="8"/>
+            </g>
+
+            <g class="pcb bluetooth-pcb">
+              <rect class="pcb-board" x="417" y="70" width="285" height="390" rx="24"/>
+              <path class="pcb-trace" d="M443 125h34v26h23m-57 220h34v-26h23m174-190h-35v24h-24m59 164h-35v-24h-24"/>
+              <circle class="pcb-detail" cx="449" cy="102" r="4"/><circle class="pcb-detail" cx="670" cy="102" r="4"/>
+              <circle class="pcb-detail" cx="449" cy="428" r="4"/><circle class="pcb-detail" cx="670" cy="428" r="4"/>
+              <text class="pcb-title" x="559" y="121">BLUETOOTH BOARD</text>
+              <text class="pcb-subtitle" x="559" y="147">STEREO AUDIO RECEIVER</text>
+              <circle class="pcb-hole connection-hole" cx="425" cy="348" r="8"/>
+              <text class="pcb-label" x="455" y="354">+5V</text>
+              <circle class="pcb-hole connection-hole" cx="425" cy="408" r="8"/>
+              <text class="pcb-label" x="455" y="414">GND</text>
+              <text class="pcb-caption" x="559" y="238">LINE-LEVEL AUDIO OUT</text>
+              <text class="pcb-label" x="665" y="294" text-anchor="end">L</text>
+              <circle class="pcb-hole connection-hole" cx="694" cy="288" r="8"/>
+              <text class="pcb-label" x="665" y="354" text-anchor="end">R</text>
+              <circle class="pcb-hole connection-hole" cx="694" cy="348" r="8"/>
+              <text class="pcb-label" x="665" y="414" text-anchor="end">AGND</text>
+              <circle class="pcb-hole connection-hole" cx="694" cy="408" r="8"/>
+              <path class="pcb-antenna" d="M520 428v-20h78v20m-68-20v-9m58 9v-9"/>
+            </g>
+
+            <g class="pcb receiver-pcb">
+              <rect class="pcb-board" x="804" y="70" width="285" height="390" rx="24"/>
+              <path class="pcb-trace" d="M830 125h34v26h23m-57 220h34v-26h23m174-190h-35v24h-24m59 164h-35v-24h-24"/>
+              <circle class="pcb-detail" cx="836" cy="102" r="4"/><circle class="pcb-detail" cx="1057" cy="102" r="4"/>
+              <circle class="pcb-detail" cx="836" cy="428" r="4"/><circle class="pcb-detail" cx="1057" cy="428" r="4"/>
+              <text class="pcb-title" x="946" y="121">RECEIVER BOARD</text>
+              <text class="pcb-subtitle" x="946" y="147">TAPE LINE-LEVEL INPUT</text>
+              <circle class="pcb-hole connection-hole" cx="812" cy="288" r="8"/>
+              <text class="pcb-label" x="842" y="294">P11 / L</text>
+              <circle class="pcb-hole connection-hole" cx="812" cy="348" r="8"/>
+              <text class="pcb-label" x="842" y="354">P12 / R</text>
+              <circle class="pcb-hole connection-hole" cx="812" cy="408" r="8"/>
+              <text class="pcb-label" x="842" y="414">P20 / AGND</text>
+              <path class="pcb-trace" d="M945 205v22h58v-22m-58 20h-26m84 0h26"/>
+              <circle class="pcb-detail" cx="945" cy="205" r="4"/><circle class="pcb-detail" cx="1003" cy="205" r="4"/>
+            </g>
+
+            <g class="connection-wires" aria-hidden="true">
+              <path d="M307 348H425"/>
+              <path d="M307 408H425"/>
+              <path d="M694 288H812"/>
+              <path d="M694 348H812"/>
+              <path d="M694 408H812"/>
+            </g>
+            <g class="wire-dots" aria-hidden="true">
+              <circle cx="307" cy="348" r="4"/><circle cx="425" cy="348" r="4"/>
+              <circle cx="307" cy="408" r="4"/><circle cx="425" cy="408" r="4"/>
+              <circle cx="694" cy="288" r="4"/><circle cx="812" cy="288" r="4"/>
+              <circle cx="694" cy="348" r="4"/><circle cx="812" cy="348" r="4"/>
+              <circle cx="694" cy="408" r="4"/><circle cx="812" cy="408" r="4"/>
+            </g>
+          </svg>
         </div>
-        <div class="diagram-lines" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="diagram-box">
-          <h3>Receiver board</h3>
-          <p>P11 / L</p><p>P12 / R</p><p>P20 / Audio signal ground</p>
-        </div>
+        <p class="diagram-warning"><strong>Mains warning:</strong> IN L and IN N carry hazardous line voltage. Use an appropriately rated, isolated supply and have mains wiring installed and enclosed by a qualified person. Keep mains and low-voltage audio wiring separated.</p>
       </div>
     </section>
 
@@ -270,8 +320,8 @@
           <figure><img src="media/main-board.jpg" alt="Main board"><figcaption>Main board</figcaption></figure>
           <figure><img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth board"><figcaption>Bluetooth board</figcaption></figure>
           <figure><img src="media/bench-testing.jpg" alt="Bench testing"><figcaption>Bench testing</figcaption></figure>
-          <figure class="image-placeholder"><div class="placeholder-label">Final wiring</div><figcaption><code>assets/final-wiring.jpg</code></figcaption></figure>
-          <figure class="image-placeholder"><div class="placeholder-label">Final assembled stereo</div><figcaption><code>assets/final-stereo.jpg</code></figcaption></figure>
+          <figure><img src="media/final-wiring.jpg" alt="Final wiring"><figcaption>Final wiring</figcaption></figure>
+          <figure><img src="media/chassis-final-assembly.jpg" alt="Final chassis assembly"><figcaption>Final chassis assembly</figcaption></figure>
         </div>
       </div>
     </section>

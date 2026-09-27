@@ -21,7 +21,7 @@ body {
   background: var(--bg);
   line-height: 1.65;
 }
-img { max-width: 100%; display: block; }
+img, video { max-width: 100%; display: block; }
 a { color: inherit; }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
 
@@ -81,30 +81,30 @@ h3 { font-size: 1.18rem; }
 .image-placeholder .placeholder-label { padding: 2rem; color: #766b5d; font-weight: 750; }
 .image-placeholder figcaption { width: 100%; align-self: end; padding: 0.8rem 1rem; background: rgba(255,255,255,0.75); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.86rem; }
 .hero-photo { min-height: 520px; box-shadow: var(--shadow); background: linear-gradient(135deg, rgba(255,255,255,0.65), rgba(200,95,57,0.08)); }
+.hero-video { width: 100%; }
 .annotation-placeholder { min-height: 420px; }
 .section-dark .image-placeholder { background: #293130; border-color: #687472; }
 .section-dark .image-placeholder .placeholder-label { color: #ddd8cf; }
 .section-dark .image-placeholder figcaption { background: #242c2b; color: #bdb8b0; border-top-color: #3d4745; }
 
-.parts-layout { display: grid; grid-template-columns: 1.45fr 0.75fr; gap: 1.5rem; align-items: start; }
+.parts-layout { display: grid; gap: 1.5rem; align-items: start; }
+.parts-layout .stacked-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .table-wrap { overflow-x: auto; border: 1px solid #3e4847; border-radius: 18px; }
-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 900px; }
+thead th:first-child { width: 34%; }
+thead th:nth-child(2) { width: 30%; }
+thead th:nth-child(3) { width: 36%; }
 th, td { text-align: left; padding: 1rem; vertical-align: top; border-bottom: 1px solid #3e4847; }
 th { background: #2a3332; color: #fff; font-size: 0.88rem; }
 td { color: #ddd8cf; }
 tr:last-child td { border-bottom: 0; }
 .stacked-cards { display: grid; gap: 1rem; }
+.part-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 5rem; }
+.part-item img { flex: 0 0 7rem; width: 7rem; height: 5rem; object-fit: cover; border-radius: 10px; }
 
 .notice { background: #fff3cd; border: 1px solid #e7ca69; border-radius: 14px; padding: 1rem 1.1rem; margin-bottom: 2rem; }
 .wiring-grid, .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
 .wiring-grid ul { padding-left: 1.15rem; }
-.simple-diagram { margin-top: 2rem; display: grid; grid-template-columns: 1fr 160px 1fr; align-items: center; gap: 1rem; }
-.diagram-box { border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem; background: var(--paper); }
-.diagram-box p { margin: 0.45rem 0; font-family: ui-monospace, monospace; }
-.diagram-lines { display: grid; gap: 2.35rem; }
-.diagram-lines span { display: block; height: 2px; background: var(--accent); position: relative; }
-.diagram-lines span::after { content: ""; position: absolute; right: -1px; top: -4px; width: 8px; height: 8px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); transform: rotate(45deg); }
-
 .steps { list-style: none; padding: 0; margin: 0; counter-reset: step; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 .steps li { counter-increment: step; display: grid; grid-template-columns: 48px 1fr; gap: 1rem; padding: 1.4rem; background: rgba(255,255,255,0.62); border: 1px solid var(--line); border-radius: 18px; }
 .steps li::before { content: counter(step); width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #fff; font-weight: 900; }
@@ -123,6 +123,11 @@ tr:last-child td { border-bottom: 0; }
 @media (max-width: 900px) {
   .hero, .story-grid, .split-layout, .parts-layout { grid-template-columns: 1fr; }
   .card-grid.four, .card-grid.three, .gallery { grid-template-columns: repeat(2, 1fr); }
+  .parts-layout .stacked-cards { grid-template-columns: 1fr; }
+  .parts-layout table { min-width: 0; }
+  .parts-layout thead th:first-child { width: 40%; }
+  .parts-layout thead th:nth-child(2) { width: 28%; }
+  .parts-layout thead th:nth-child(3) { width: 32%; }
   .hero { padding-top: 3rem; }
   .hero-photo { min-height: 360px; }
   .quote-card { transform: none; }
@@ -130,44 +135,36 @@ tr:last-child td { border-bottom: 0; }
 
 @media (max-width: 650px) {
   .container { width: min(100% - 24px, var(--max)); }
+  .parts-layout table { min-width: 700px; }
   .nav { align-items: flex-start; padding: 1rem 0; }
   .nav-links { justify-content: flex-end; gap: 0.7rem; font-size: 0.9rem; }
   .hero { gap: 2rem; padding-bottom: 4rem; }
   h1 { font-size: 3rem; }
   .section { padding: 4rem 0; }
   .card-grid.four, .card-grid.three, .gallery, .wiring-grid, .photo-pair, .steps { grid-template-columns: 1fr; }
-  .simple-diagram { grid-template-columns: 1fr; }
-  .diagram-lines { height: 90px; justify-items: center; gap: 1rem; }
-  .diagram-lines span { width: 2px; height: 24px; }
-  .diagram-lines span::after { right: -4px; top: 17px; transform: rotate(135deg); }
   .footer-content { align-items: flex-start; flex-direction: column; }
 }
 
-/* Add these rules near the end of styles.css */
-
 #wiring .wiring-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
-  gap: 2rem;
-  align-items: start;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
-#wiring .wiring-column {
-  display: grid;
-  gap: 1.5rem;
-  min-width: 0;
+#wiring .receiver-points {
+  margin: 0;
 }
 
-#wiring .wiring-card {
-  height: auto;
+#wiring .wiring-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
 }
 
 #wiring figure {
   margin: 0;
 }
 
-#wiring .wiring-feature-image img,
 #wiring .wiring-detail-image img {
   display: block;
   width: 100%;
@@ -181,35 +178,123 @@ tr:last-child td { border-bottom: 0; }
   background: #f4f1ea;
 }
 
-#wiring .wiring-feature-image figcaption,
 #wiring .wiring-detail-image figcaption {
   margin-top: 0.65rem;
   font-size: 0.92rem;
   line-height: 1.45;
 }
 
-#wiring .power-supply-placeholder {
-  min-height: 18rem;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  text-align: center;
-}
-
-#wiring .power-supply-placeholder figcaption {
-  margin-top: 1rem;
-}
-
 #wiring .simple-diagram {
+  display: grid;
+  gap: 1rem;
   margin-top: 2.5rem;
 }
 
-@media (max-width: 850px) {
-  #wiring .wiring-layout {
+#wiring .diagram-scroll {
+  overflow-x: auto;
+  border-radius: 1rem;
+  scrollbar-color: var(--accent) var(--line);
+}
+
+#wiring .connection-svg {
+  display: block;
+  width: 100%;
+  min-width: 860px;
+  height: auto;
+  border-radius: 1rem;
+  background: #f4f1ea;
+}
+
+#wiring .pcb-board {
+  fill: #214c40;
+  stroke: #16382f;
+  stroke-width: 3;
+}
+
+#wiring .pcb-trace,
+#wiring .pcb-antenna {
+  fill: none;
+  stroke: #70a58a;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  opacity: 0.72;
+}
+
+#wiring .pcb-antenna {
+  stroke: #b8c88e;
+  stroke-width: 2;
+}
+
+#wiring .pcb-detail {
+  fill: #b4c69d;
+}
+
+#wiring .pcb-title {
+  fill: #f5f4dc;
+  font-size: 17px;
+  font-weight: 800;
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+}
+
+#wiring .pcb-subtitle,
+#wiring .pcb-caption {
+  fill: #b9cfbd;
+  font-size: 11px;
+  font-weight: 650;
+  text-anchor: middle;
+  letter-spacing: 0.08em;
+}
+
+#wiring .pcb-label {
+  fill: #fff4d2;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#wiring .pcb-caption {
+  text-anchor: start;
+}
+
+#wiring .pcb-hole {
+  fill: #dfb65c;
+  stroke: #f5e5ad;
+  stroke-width: 2;
+}
+
+#wiring .pcb-hole.mains-hole {
+  fill: #bf5b45;
+  stroke: #f3bd9d;
+}
+
+#wiring .connection-wires {
+  fill: none;
+  stroke: #d56b3d;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+#wiring .wire-dots {
+  fill: #f2c36d;
+}
+
+#wiring .diagram-warning {
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: var(--paper);
+  margin: 0;
+}
+
+#wiring .diagram-warning {
+  border: 1px solid #e7ca69;
+  background: #fff3cd;
+}
+
+@media (max-width: 650px) {
+  #wiring .wiring-images {
     grid-template-columns: 1fr;
   }
 
-  #wiring .wiring-column-right {
-    margin-top: 0.5rem;
-  }
+  #wiring .connection-svg { min-width: 860px; }
 }
