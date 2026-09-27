@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <figure class="hero-photo"><video class="hero-video" controls preload="metadata" poster="media/testing-poster.jpg" aria-label="Audio test"><source src="media/testing.mp4" type="video/mp4">Your browser does not support the video element.</video><figcaption>Audio test</figcaption></figure>
+      <figure class="hero-photo"><video class="hero-video" controls preload="metadata" poster="media/testing-poster.jpg" aria-label="Audio test"><source src="media/testing.mp4" type="video/mp4">Your browser does not support the video element.</video><figcaption>Testing the Bluetooth audio</figcaption></figure>
     </div>
   </header>
 
@@ -112,13 +112,13 @@
           <div class="stacked-cards">
             <article class="card dark-card">
               <h3>Choosing a Bluetooth module</h3>
-              <p>I looked for a board with an integrated antenna and clearly labeled <strong>L</strong>, <strong>R</strong>, and <strong>AGND</strong> solder pads. I also wanted a module that ran directly from 5 V and reconnected automatically after power-up.</p>
-              <p>Avoid boards intended only to drive speakers. The stereo already has an amplifier, so the Bluetooth board should provide a <strong>line-level</strong> signal.</p>
+              <p>I looked for a board with an integrated antenna and clearly labeled <strong>L</strong>, <strong>R</strong>, and <strong>AGND</strong> solder pads. I also wanted a module that ran directly from 5V and reconnected automatically after power-up.</p>
+              <p>Avoid boards intended to drive speakers. The stereo already has an amplifier, so the Bluetooth board should provide a <strong>line-level</strong> signal.</p>
             </article>
 
             <article class="card dark-card">
               <h3>Choosing the power supply</h3>
-              <p>I used a <a href="https://www.amazon.com/dp/B0DZX23P3V?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_6" target="_blank" rel="noreferrer">compact regulated 5 V AC-to-DC module</a> instead of guessing that an internal wire was safe. This module is rated for up to 700 mA, which is suitable for powering a small Bluetooth board when installed correctly.</p>
+              <p>I used a compact regulated 5 V AC-to-DC module instead of guessing that an internal wire was safe. This module is rated for up to 700 mA, which is suitable for powering a small Bluetooth board.</p>
               <p>For initial testing, a USB power bank or current-limited bench supply is a good way to separate audio problems from power-supply problems.</p>
             </article>
           </div>
@@ -129,18 +129,18 @@
               <tbody>
                 <tr>
                   <td><div class="part-item"><a href="https://www.amazon.com/dp/B07W7YCFS1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_8" target="_blank" rel="noreferrer">Bluetooth audio receiver</a><img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth audio receiver board" loading="lazy"></div></td>
-                  <td>5 V input, stereo line-level L/R outputs, exposed ground pad</td>
+                  <td>5V input, stereo line-level L/R outputs, exposed ground pad</td>
                   <td>It must provide an audio signal, not a speaker-level amplified output. This is the kind of compact module I used for the project.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><a href="https://www.amazon.com/dp/B0DZX23P3V?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_6" target="_blank" rel="noreferrer">5 V power supply</a><img src="media/powersupply5V.png" alt="5 V power supply module" loading="lazy"></div></td>
-                  <td>Regulated AC-to-DC module with a 5 V output and up to 700 mA of current</td>
+                  <td>Regulated AC-to-DC module with a 5 V output and at least 700 mA of current</td>
                   <td>This compact module provides the regulated 5 V DC needed by the Bluetooth board. Verify the output with a multimeter before connecting it, and use appropriate insulation and isolation when working from mains power.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><span>Coupling capacitors</span><img src="media/bluetooth-coupling-caps.jpg" alt="Coupling capacitors installed on the Bluetooth receiver board" loading="lazy"></div></td>
                   <td>1 to 4.7 µF, one per channel</td>
-                  <td>They can block DC between the Bluetooth board and the stereo input.</td>
+                  <td>They block DC between the Bluetooth board and the stereo input.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><span>Hookup wire</span><img src="media/final-wiring.jpg" alt="Hookup wires routed inside the stereo" loading="lazy"></div></td>
@@ -165,14 +165,12 @@
         <h2>Where I soldered the Bluetooth audio</h2>
       </div>
 
-      <div class="notice"><strong>Important:</strong> The labels and board layout should be checked on the actual stereo before soldering. Similar models may use different circuit boards.</div>
-
       <div class="wiring-layout">
         <article class="card wiring-card receiver-points">
           <h3>Receiver board points</h3>
-          <p>The receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong>. These are the TAPE line-level audio inputs. Since I did not have any cassette tapes, I chose to use this input for Bluetooth audio.</p>
+          <p>This receiver board has solder points near the source-selector mechanism marked <strong>P11 / L</strong> and <strong>P12 / R</strong>. These are the TAPE line-level audio inputs. Since I did not have any cassette tapes, I chose to use this input for Bluetooth audio.</p>
           <p>The brown and gray wires traced to the tape deck's line-level output. I used a multimeter and followed the board traces to verify that these points were in the TAPE audio path.</p>
-          <p>On my stereo, the selector switch connects the audio pathway while the cassette play button separately closes a switch for the tape-drive motor. This meant the TAPE audio input was active whenever selected, but the motor only ran when PLAY was pressed.</p>
+          <p>On my stereo, the selector switch connects the audio pathway while the cassette play button separately closes a switch for the tape-drive motor. This meant the TAPE audio input was active whenever selected, but the motor only ran when PLAY was pressed making it ideal for Bluetooth audio integration.</p>
           <p>I connected the Bluetooth signal ground to a confirmed signal-ground point rather than to an arbitrary piece of metal. <strong>P20 / AGND</strong> had several wires connected to it and served as the board's audio signal ground. I confirmed it by checking continuity to the outer shield connection of the RCA-style speaker jacks.</p>
         </article>
 
@@ -272,7 +270,7 @@
             </g>
           </svg>
         </div>
-        <p class="diagram-warning"><strong>Warning:</strong> L and N are connected 120 V AC supply. Line-voltage wiring should be installed in accordance with applicable electrical codes. Maintain required separation between line-voltage conductors and low-voltage/audio circuits.</p>
+        <!-- <p class="diagram-warning"><strong>Warning:</strong> L and N are connected 120 V AC supply. Line-voltage wiring should be installed in accordance with applicable electrical codes. Maintain required separation between line-voltage conductors and low-voltage/audio circuits.</p> -->
       </div>
     </section>
 
@@ -285,7 +283,7 @@
 
         <ol class="steps">
           <li><div><h3>I photographed everything</h3><p>Before unplugging wires or moving boards, I took pictures from several angles. This gave me a reference when I could not remember where a connector or wire bundle belonged.</p></div></li>
-          <li><div><h3>I cleaned and repaired the original stereo</h3><p>I removed old grease, cleaned the mechanism, lubricated moving parts, and made sure the turntable and receiver worked before adding anything new.  A proper electral contact cleaner like <href="https://www.amazon.com/dp/B00006LVF1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1">DeoxIT FaderLube</href> works far better than WD40.</p></div></li>
+          <li><div><h3>I cleaned and repaired the original stereo</h3><p>I removed old grease, cleaned the mechanism, lubricated moving parts, and made sure the turntable and receiver worked before adding anything new.  Use a proper electrical contact cleaner like DeoxIT FaderLube instead of WD40.</p></div></li>
           <li><div><h3>I studied the receiver circuit board</h3><p>I followed the traces around the source selector and looked for labeled audio points. I found P11/L and P12/R near the selector mechanism.</p></div></li>
           <li><div><h3>I verified the solder points</h3><p>I used continuity tests and voltage measurements to make sure the points were part of the signal path and did not carry an unsafe DC voltage.</p></div></li>
           <li><div><h3>I bench-tested the Bluetooth board</h3><p>I powered the module from a known 5 V source, paired my phone, and confirmed that both left and right channels produced audio.</p></div></li>
@@ -308,7 +306,7 @@
         <article class="card"><h3>Ground is often the problem</h3><p>Chassis ground, power ground, and signal ground may connect differently. Measuring continuity is better than assuming.</p></article>
         <article class="card"><h3>Power quality affects audio</h3><p>A circuit can work electrically and still sound bad because of ripple, switching noise, or a ground loop.  Isolating capacitors help.</p></article>
         <article class="card"><h3>Old equipment rewards patience</h3><p>Mechanical linkages and aged wiring are rewardingly simple but easy to damage. Moving carefully saves time.</p></article>
-        <article class="card"><h3>Utilize resources effectively</h3><p>Help from AI and online forums was invaluable. I couldn't have completed this project without them.</p></article>
+        <article class="card"><h3>Utilize AI resources</h3><p>Help from AI chats and online forums was invaluable. I couldn't have completed this project without them.</p></article>
       </div>
     </section>
 
@@ -333,7 +331,7 @@
     <section class="section container closing">
       <p class="eyebrow">Looking back</p>
       <h2>It started as an old stereo. It became proof that I could figure things out.</h2>
-      <p>Every time I solved one problem, another appeared. The tuner didn't work. Then amplifier volume control crackled with noise. Then the Bluetooth module added noise. Each problem forced me to learn something new.</p>
+      <p>Every time I solved one problem, another appeared. The tuner didn't work. Then amplifier volume control crackled and popped. Then the Bluetooth module added noise. Each problem forced me to learn something new.</p>
       <p>I could not understand the whole project at once, but with the help of AI and my own determination,I could understand the next wire, the next measurement, and the next test. Eventually, the stereo that had been sitting unused was playing music from my phone.</p>
     </section>
   </main>
