@@ -81,7 +81,7 @@ h3 { font-size: 1.18rem; }
 .image-placeholder .placeholder-label { padding: 2rem; color: #766b5d; font-weight: 750; }
 .image-placeholder figcaption { width: 100%; align-self: end; padding: 0.8rem 1rem; background: rgba(255,255,255,0.75); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.86rem; }
 .hero-photo { min-height: 520px; box-shadow: var(--shadow); background: linear-gradient(135deg, rgba(255,255,255,0.65), rgba(200,95,57,0.08)); }
-.hero-video { width: 100%; }
+.hero-video { width: 75%; margin-inline: auto; }
 .annotation-placeholder { min-height: 420px; }
 .section-dark .image-placeholder { background: #293130; border-color: #687472; }
 .section-dark .image-placeholder .placeholder-label { color: #ddd8cf; }
@@ -130,6 +130,7 @@ tr:last-child td { border-bottom: 0; }
   .parts-layout thead th:nth-child(3) { width: 32%; }
   .hero { padding-top: 3rem; }
   .hero-photo { min-height: 360px; }
+  .hero-video { width: 100%; }
   .quote-card { transform: none; }
 }
 
