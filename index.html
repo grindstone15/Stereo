@@ -194,19 +194,19 @@
               <path class="pcb-trace" d="M55 125h35v28h22m-57 218h35v-28h22m180-190h-38v24h-24m62 164h-38v-24h-24"/>
               <circle class="pcb-detail" cx="62" cy="102" r="4"/><circle class="pcb-detail" cx="283" cy="102" r="4"/>
               <circle class="pcb-detail" cx="62" cy="428" r="4"/><circle class="pcb-detail" cx="283" cy="428" r="4"/>
-              <text class="pcb-title" x="172" y="121">5 V POWER SUPPLY</text>
+              <text class="pcb-title" x="172" y="121">5V POWER SUPPLY</text>
               <text class="pcb-subtitle" x="172" y="147">REGULATED DC OUTPUT</text>
-              <text class="pcb-label" x="70" y="215">IN L</text>
-              <text class="pcb-caption" x="70" y="238">LINE IN</text>
-              <circle class="pcb-hole mains-hole" cx="280" cy="210" r="7"/>
-              <text class="pcb-label" x="70" y="280">IN N</text>
-              <text class="pcb-caption" x="70" y="303">NEUTRAL IN</text>
-              <circle class="pcb-hole mains-hole" cx="280" cy="275" r="7"/>
-              <text class="pcb-label" x="70" y="354">VCC</text>
-              <text class="pcb-caption" x="70" y="377">+5 V OUTPUT</text>
+              <text class="pcb-label" x="70" y="215">L</text>
+              <text class="pcb-caption" x="70" y="238">120V AC</text>
+              <circle class="pcb-hole mains-hole" cx="50" cy="210" r="7"/>
+              <text class="pcb-label" x="70" y="280">N</text>
+              <text class="pcb-caption" x="70" y="303">NEUTRAL</text>
+              <circle class="pcb-hole mains-hole" cx="50" cy="275" r="7"/>
+              <text class="pcb-label" x="278" y="354" text-anchor="end">VCC</text>
+              <text class="pcb-caption right-caption" x="278" y="377">+5V DC OUTPUT</text>
               <circle class="pcb-hole connection-hole" cx="307" cy="348" r="8"/>
-              <text class="pcb-label" x="70" y="414">GND</text>
-              <text class="pcb-caption" x="70" y="437">0 V OUTPUT</text>
+              <text class="pcb-label" x="278" y="414" text-anchor="end">GND</text>
+              <text class="pcb-caption right-caption" x="278" y="437">GROUND</text>
               <circle class="pcb-hole connection-hole" cx="307" cy="408" r="8"/>
             </g>
 
@@ -221,7 +221,10 @@
               <text class="pcb-label" x="455" y="354">+5V</text>
               <circle class="pcb-hole connection-hole" cx="425" cy="408" r="8"/>
               <text class="pcb-label" x="455" y="414">GND</text>
-              <text class="pcb-caption" x="559" y="238">LINE-LEVEL AUDIO OUT</text>
+              <text class="pcb-caption centered-caption" x="559" y="225">
+                <tspan x="559" dy="0">LINE-LEVEL</tspan>
+                <tspan x="559" dy="14">AUDIO OUT</tspan>
+              </text>
               <text class="pcb-label" x="665" y="294" text-anchor="end">L</text>
               <circle class="pcb-hole connection-hole" cx="694" cy="288" r="8"/>
               <text class="pcb-label" x="665" y="354" text-anchor="end">R</text>
@@ -264,7 +267,7 @@
             </g>
           </svg>
         </div>
-        <p class="diagram-warning"><strong>Mains warning:</strong> IN L and IN N carry hazardous line voltage. Use an appropriately rated, isolated supply and have mains wiring installed and enclosed by a qualified person. Keep mains and low-voltage audio wiring separated.</p>
+        <p class="diagram-warning"><strong>Warning:</strong> L and N are connected 120 V AC supply. Line-voltage wiring should be installed in accordance with applicable electrical codes. Maintain required separation between line-voltage conductors and low-voltage/audio circuits.</p>
       </div>
     </section>
 
@@ -277,14 +280,12 @@
 
         <ol class="steps">
           <li><div><h3>I photographed everything</h3><p>Before unplugging wires or moving boards, I took pictures from several angles. This gave me a reference when I could not remember where a connector or wire bundle belonged.</p></div></li>
-          <li><div><h3>I cleaned and repaired the original stereo</h3><p>I removed old grease, cleaned the mechanism, lubricated moving parts, and made sure the turntable and receiver worked before adding anything new.</p></div></li>
-          <li><div><h3>I bench-tested the Bluetooth board</h3><p>I powered the module from a known 5 V source, paired my phone, and confirmed that both left and right channels produced audio.</p></div></li>
+          <li><div><h3>I cleaned and repaired the original stereo</h3><p>I removed old grease, cleaned the mechanism, lubricated moving parts, and made sure the turntable and receiver worked before adding anything new.  A proper electral contact cleaner like <href="https://www.amazon.com/dp/B00006LVF1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1">DeoxIT FaderLube</href> works far better than WD40.</p></div></li>
           <li><div><h3>I studied the receiver circuit board</h3><p>I followed the traces around the source selector and looked for labeled audio points. I found P11/L and P12/R near the selector mechanism.</p></div></li>
           <li><div><h3>I verified the solder points</h3><p>I used continuity tests and voltage measurements to make sure the points were part of the signal path and did not carry an unsafe DC voltage.</p></div></li>
-          <li><div><h3>I made a temporary connection first</h3><p>Before permanently soldering anything, I connected the Bluetooth left, right, and ground leads temporarily and tested the stereo at low volume.</p></div></li>
+          <li><div><h3>I bench-tested the Bluetooth board</h3><p>I powered the module from a known 5 V source, paired my phone, and confirmed that both left and right channels produced audio.</p></div></li>
           <li><div><h3>I reduced the noise</h3><p>The first setup produced unwanted noise. I learned that power-supply filtering and grounding matter as much as the audio connection. I added capacitors near the Bluetooth module and kept the audio wires short.</p></div></li>
-          <li><div><h3>I soldered the final connections</h3><p>Once the signal was clean, I soldered the audio wires to the verified points and insulated every exposed connection with heat-shrink tubing.</p></div></li>
-          <li><div><h3>I mounted the board</h3><p>I placed the Bluetooth module where its antenna was not blocked by the metal chassis. I kept it away from the transformer, motor wiring, and moving parts.</p></div></li>
+          <li><div><h3>I mounted the boards</h3><p>I placed the Bluetooth module where its antenna was not blocked by the chassis. I kept it away from the transformer, motor wiring, and moving parts.  I placed the 5V power supply so that line voltage was isolated and routed away from audio wiring.</p></div></li>
           <li><div><h3>I tested every original function</h3><p>After the Bluetooth input worked, I tested the radio, cassette, turntable, balance, tone, and volume controls to make sure I had not broken anything else.</p></div></li>
         </ol>
       </div>
@@ -299,10 +300,10 @@
       <div class="card-grid three">
         <article class="card"><h3>Document first</h3><p>Photos and labels saved me when I forgot where wires and connectors had been routed.</p></article>
         <article class="card"><h3>Test one change at a time</h3><p>When I changed several things at once, troubleshooting became much harder.</p></article>
-        <article class="card"><h3>Ground is not always simple</h3><p>Chassis ground, power ground, and signal ground may connect differently. Measuring is better than assuming.</p></article>
-        <article class="card"><h3>Power quality affects audio</h3><p>A circuit can work electrically and still sound bad because of ripple, switching noise, or a ground loop.</p></article>
-        <article class="card"><h3>Old equipment rewards patience</h3><p>Mechanical linkages and aged wiring are easy to damage. Moving slowly usually saved time.</p></article>
-        <article class="card"><h3>Progress comes in small steps</h3><p>I did not understand the whole system at first. I learned enough to solve one problem, then moved to the next.</p></article>
+        <article class="card"><h3>Ground is often the problem</h3><p>Chassis ground, power ground, and signal ground may connect differently. Measuring continuity is better than assuming.</p></article>
+        <article class="card"><h3>Power quality affects audio</h3><p>A circuit can work electrically and still sound bad because of ripple, switching noise, or a ground loop.  Isolating capacitors help.</p></article>
+        <article class="card"><h3>Old equipment rewards patience</h3><p>Mechanical linkages and aged wiring are rewardingly simple but easy to damage. Moving carefully saves time.</p></article>
+        <article class="card"><h3>Utilize resources effectively</h3><p>Help from AI and online forums was invaluable. I couldn't have completed this project without them.</p></article>
       </div>
     </section>
 
@@ -310,15 +311,13 @@
       <div class="container">
         <div class="section-heading light">
           <p class="eyebrow">Project photos</p>
-          <h2>Images to add before publishing</h2>
+          <h2>Images from the project</h2>
         </div>
 
         <div class="gallery">
-          <figure><img src="media/receiver-front.jpg" alt="Receiver Before Restoration"><figcaption>Receiver before restoration</figcaption></figure>
           <figure><img src="media/turntable-open.jpg" alt="Receiver Truntable Open"><figcaption>Turntable removed</figcaption></figure>
           <figure><img src="media/chassis-overview.jpg" alt="Receiver Chassis Overview"><figcaption>Inside the receiver chassis</figcaption></figure>
           <figure><img src="media/main-board.jpg" alt="Main board"><figcaption>Main board</figcaption></figure>
-          <figure><img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth board"><figcaption>Bluetooth board</figcaption></figure>
           <figure><img src="media/bench-testing.jpg" alt="Bench testing"><figcaption>Bench testing</figcaption></figure>
           <figure><img src="media/final-wiring.jpg" alt="Final wiring"><figcaption>Final wiring</figcaption></figure>
           <figure><img src="media/chassis-final-assembly.jpg" alt="Final chassis assembly"><figcaption>Final chassis assembly</figcaption></figure>
@@ -329,8 +328,8 @@
     <section class="section container closing">
       <p class="eyebrow">Looking back</p>
       <h2>It started as an old stereo. It became proof that I could figure things out.</h2>
-      <p>Every time I solved one problem, another appeared. The record changer would not cycle. Then the amplifier hummed. Then the Bluetooth module added noise. Each problem forced me to learn something new.</p>
-      <p>I could not understand the whole project at once, but I could understand the next wire, the next measurement, and the next test. Eventually, the stereo that had been sitting unused was playing music from my phone.</p>
+      <p>Every time I solved one problem, another appeared. The tuner didn't work. Then amplifier volume control crackled with noise. Then the Bluetooth module added noise. Each problem forced me to learn something new.</p>
+      <p>I could not understand the whole project at once, but with the help of AI and my own determination,I could understand the next wire, the next measurement, and the next test. Eventually, the stereo that had been sitting unused was playing music from my phone.</p>
     </section>
   </main>
 
