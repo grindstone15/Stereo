@@ -155,17 +155,17 @@
                 <tr>
                   <td><div class="part-item"><a href="https://www.amazon.com/dp/B07W7YCFS1?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_8" target="_blank" rel="noreferrer">Bluetooth audio receiver</a><img src="media/bluetooth-pinout-annotated.jpg" alt="Bluetooth audio receiver board" loading="lazy"></div></td>
                   <td>5V input, stereo line-level L/R outputs, exposed ground pad</td>
-                  <td>It must provide an audio signal, not a speaker-level amplified output. This is the kind of compact module I used for the project.</td>
+                  <td>It must provide an audio line-level signal, not a speaker-level amplified output. I used a compact Bluetooth receiver board for the project.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><a href="https://www.amazon.com/dp/B0DZX23P3V?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_6" target="_blank" rel="noreferrer">5 V power supply</a><img src="media/powersupply5V.png" alt="5 V power supply module" loading="lazy"></div></td>
                   <td>Regulated AC-to-DC module with a 5 V output and at least 700 mA of current</td>
-                  <td>This compact module provides the regulated 5 V DC needed by the Bluetooth board. Verify the output with a multimeter before connecting it, and use appropriate insulation and isolation when working from mains power.</td>
+                  <td>This compact module provides the regulated 5 V DC needed by the Bluetooth board. Verify the output with a multimeter before connecting it, and use appropriate insulation and isolation when working with line voltage.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><span>Coupling capacitors</span><img src="media/bluetooth-coupling-caps.jpg" alt="Coupling capacitors installed on the Bluetooth receiver board" loading="lazy"></div></td>
                   <td>1 to 4.7 µF, one per channel</td>
-                  <td>They block DC between the Bluetooth board and the stereo input.</td>
+                  <td>They block DC between the Bluetooth board and the stereo input but allow the audio signal to pass through. I used two 4.7 µF capacitors for this purpose.</td>
                 </tr>
                 <tr>
                   <td><div class="part-item"><span>Hookup wire</span><img src="media/final-wiring.jpg" alt="Hookup wires routed inside the stereo" loading="lazy"></div></td>
