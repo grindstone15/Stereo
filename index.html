@@ -18,6 +18,16 @@
     if (college) {
       gtag('event', 'college_visit', { college: college });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const video = document.querySelector('.hero-video');
+
+      if (video) {
+        video.addEventListener('play', () => {
+          gtag('event', 'video_play', { video_name: 'testing.mp4', college: college || 'unknown' });
+        }, { once: true });
+      }
+    });
   </script>
   <title>Giving an Old Stereo a New Purpose</title>
   <link rel="stylesheet" href="styles.css">
