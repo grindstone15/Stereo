@@ -12,6 +12,12 @@
     gtag('js', new Date());
 
     gtag('config', 'G-H0GBP1ZM74');
+    const params = new URLSearchParams(window.location.search);
+    const college = params.get('college');
+
+    if (college) {
+      gtag('event', 'college_visit', { college: college });
+    }
   </script>
   <title>Giving an Old Stereo a New Purpose</title>
   <link rel="stylesheet" href="styles.css">
